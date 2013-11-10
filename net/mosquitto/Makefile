@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mosquitto
-PKG_VERSION:=1.2
+PKG_VERSION:=1.2.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://mosquitto.org/files/source/
-PKG_MD5SUM:=424bfd84a7c923ccc2ea36c8bee558b2
+PKG_MD5SUM:=fcf329dc409660efb2ebbe980867d476
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
 
@@ -62,6 +62,10 @@ define Package/$(PKG_NAME)-nossl/description
         This package is built WITHOUT SSL support.
 endef
 
+# Applies to all...
+ifeq ($(BUILD_VARIANT),nossl)
+        MAKE_FLAGS += WITH_TLS=no
+endif
 
 define Package/mosquitto-client/default
     $(Package/mosquitto/default)
@@ -176,11 +180,6 @@ define Package/libmosquitto/install
 	$(LN) libmosquitto.so.1 $(1)/usr/lib/libmosquitto.so
 endef
 Package/libmosquitto-nossl/install = $(Package/libmosquitto/install)
-
-# Applies to all...
-ifeq ($(BUILD_VARIANT),nossl)
-        MAKE_FLAGS += WITH_TLS=no
-endif
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)-nossl))

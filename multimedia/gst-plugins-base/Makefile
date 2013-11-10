@@ -236,6 +236,6 @@ $(eval $(call GstBuildPlugin,theora,Theora,video tag,ogg,+libtheora))
 $(eval $(call GstBuildPlugin,typefindfunctions,'typefind' functions,pbutils,,))
 $(eval $(call GstBuildPlugin,videotestsrc,video test,,,+liboil))
 $(eval $(call GstBuildPlugin,volume,volume,audio controller,,+liboil))
-$(eval $(call GstBuildPlugin,vorbis,Vorbis,audio tag,ogg,+libvorbis))
+$(eval $(call GstBuildPlugin,vorbis,Vorbis,audio tag,ogg,+libvorbis +libvorbisidec))
 
 $(eval $(call BuildPackage,gst-plugins-base))

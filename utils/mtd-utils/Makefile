@@ -36,8 +36,8 @@ FILES:= \
 	flashcp \
 	ftl_check \
 	ftl_format \
-	jffs2dump \
-	jffs2reader \
+	jffs2dump:+zlib \
+	jffs2reader:+zlib \
 	mkfs.jffs2:+zlib \
 	mkfs.ubifs:+libuuid:+liblzo:+zlib \
 	mtd_debug \

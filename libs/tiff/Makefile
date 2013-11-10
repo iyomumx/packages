@@ -36,7 +36,7 @@ $(call Package/tiff/Default)
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE+= library
-  DEPENDS:=+zlib +libjpeg
+  DEPENDS:=+zlib +libjpeg +liblzma
 endef
 
 define Package/libtiffxx

@@ -8,12 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libvorbisidec
-PKG_VERSION:=1.0.2+svn18153
+PKG_VERSION:=1.0.2
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).orig.tar.gz
-PKG_SOURCE_URL:=http://ftp.de.debian.org/debian/pool/main/libv/libvorbisidec/
-PKG_MD5SUM:=4190859414c5d6760e316b5cf00fe7c5
+PKG_SOURCE_PROTO:=svn
+PKG_SOURCE_URL:=http://svn.xiph.org/branches/lowmem-branch/Tremor/
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=19012
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_LICENSE:=BSD-3c
 PKG_LICENSE_FILES:=COPYING

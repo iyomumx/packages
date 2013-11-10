@@ -32,7 +32,7 @@ endef
 
 define Package/libdw
   $(call Package/elfutils/Default)
-  DEPENDS:=libelf1 +zlib +libbz2
+  DEPENDS:=libelf1 +zlib +libbz2 +liblzma
   TITLE+= (libdw)
 endef
 

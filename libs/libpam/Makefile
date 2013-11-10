@@ -25,6 +25,7 @@ define Package/libpam
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=free implementation of the following DCE-RFC from Sunsoft.
+  DEPENDS:=+libdb47
   URL:=http://www.kernel.org/pub/linux/libs/pam
 endef
 
