@@ -26,7 +26,7 @@ define Package/vsftpd/Default
   TITLE:=A fast and secure FTP server
   URL:=http://vsftpd.beasts.org/
   MAINTAINER:=Cezary Jackiewicz <cezary@eko.one.pl>
-  DEPENDS:=libpam
+  DEPENDS:=+libpam
 endef
 
 
