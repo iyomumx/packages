@@ -28,7 +28,7 @@ define Package/libaa
   CATEGORY:=Libraries
   TITLE:=Ascii-Art rendering library
   URL:=http://aa-project.sourceforge.net/
-  DEPENDS:=+libncurses
+  DEPENDS:=+libncurses +libslang2
 endef
 
 define Build/Configure
