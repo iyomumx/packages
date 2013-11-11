@@ -44,7 +44,7 @@ CONFIGURE_VARS:= \
 	LD="$(TARGET_LD)" \
 	CFLAGS="$(TARGET_CFLAGS) -I$(STAGING_DIR)/usr/lib/libnet-1.1.x/include -I$(STAGING_DIR)/usr/include -I$(PKG_BUILD_DIR)/lorcon" \
 	LDFLAGS="$(TARGET_LDFLAGS) -L$(STAGING_DIR)/usr/lib/libnet-1.1.x/lib -L$(PKG_BUILD_DIR)/lorcon/.libs -lcrypto -lssl" \
-	LIBTOOL="$(STAGING_DIR)/host/bin/libtool"
+	LIBTOOL="$(STAGING_DIR)/host/bin/libtool --tag=CC"
 
 define Build/Configure
 	( cd $(PKG_BUILD_DIR); tar -xzf lorcon-current.tgz; cd lorcon; \
