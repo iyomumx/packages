@@ -15,6 +15,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=@SF/bandwidthd
 PKG_MD5SUM:=aa79aad7bd489fd2cae1f7dc086ca8b6
 
+PKG_FIXUP:=autoreconf
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/bandwidthd
