@@ -20,7 +20,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/at
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=+libelf1
+  DEPENDS:=+libelf1 +libpam
   TITLE:=Delayed job execution and batch processing
   URL:=http://packages.debian.org/stable/at
   MAINTAINER:=Luka Perkov <openwrt@lukaperkov.net>
