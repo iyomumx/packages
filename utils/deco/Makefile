@@ -16,6 +16,7 @@ PKG_SOURCE_URL:=@SF/deco
 PKG_MD5SUM:=f77f60e8be0cae1f814cba1ef61bf4d0
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)$(PKG_VERSION)
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
