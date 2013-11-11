@@ -69,6 +69,10 @@ define Build/Compile/PyMod
 		CFLAGS="$(TARGET_CFLAGS)" \
 		CPPFLAGS="$(TARGET_CPPFLAGS)" \
 		LDFLAGS="$(TARGET_LDFLAGS)" \
+		CC="$(TARGET_CC)" \
+		GCC="$(TARGET_CC)" \
+		CXX="$(TARGET_CXX)" \
+		CPP="$(TARGET_CROSS)cpp" \
 		$(3) \
 		, \
 		./setup.py $(2) \
