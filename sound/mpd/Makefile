@@ -8,18 +8,20 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mpd
-PKG_VERSION:=0.16.5
-PKG_RELEASE:=2
+PKG_VERSION:=0.18.3
+PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@SF/musicpd
-PKG_MD5SUM:=f7564cff12035f6a1112cce770655df7
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
+PKG_SOURCE_URL:=http://www.musicpd.org/download/mpd/stable/
+PKG_MD5SUM:=7e6b823465c69a3e963c72096dfec636
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_BUILD_PARALLEL:=1
 
 PKG_CONFIG_DEPENDS:= \
 	CONFIG_IPV6 \
+
+PKG_FIXUP:=autoreconf
 
 PKG_INSTALL:=1
 
@@ -32,7 +34,8 @@ define Package/mpd/Default
   TITLE:=Music Player Daemon
   URL:=http://www.musicpd.org/
   DEPENDS:= +glib2 +libcurl +libpthread \
-	+libflac +BUILD_PATENTED:libmad +libvorbisidec
+	+libflac +BUILD_PATENTED:libmad \
+	+libvorbisidec +libaudiofile +libmpdclient
 endef
 
 define Package/mpd/Default/description
@@ -140,7 +143,7 @@ TARGET_CFLAGS += -std=gnu99
 TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
 # use gcc instead of g++ to avoid unnecessary linking against libstdc++
-TARGET_CXX:=$(TARGET_CC)
+#TARGET_CXX:=$(TARGET_CC)
 
 ifeq ($(BUILD_VARIANT),full)
 
