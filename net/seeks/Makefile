@@ -18,6 +18,8 @@ PKG_SOURCE_PROTO:=git
 PKG_REV:=e8565b98cfe40fba644f587536f15f1a8665d230
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
+PKG_FIXUP:=autoreconf
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
@@ -49,27 +51,23 @@ define Package/seeks/description
 endef
 
 
-CONFIGURE_VARS:= \
-	 CXXFLAGS="-I$(STAGING_DIR)/usr/include $(ICONV_CFLAGS)" \
-	 LDFLAGS="-L$(STAGING_DIR)/usr/lib      $(ICONV_LDFLAGS)" \
+#CONFIGURE_VARS:= \
+TARGET_CXXFLAGS += $(ICONV_CFLAGS) $(FPIC)
+TARGET_LDFLAGS += $(ICONV_LDFLAGS)
 
 CONFIGURE_ARGS += \
-	--prefix=/usr \
 	--enable-httpserv-plugin \
 	--enable-keepalive \
 	--disable-image-websearch-plugin \
 	--disable-icu
 
 define Build/Configure
-	(cd $(PKG_BUILD_DIR); rm -rf config.{cache,status}; \
-		./autogen.sh \
-	);
+	(cd $(PKG_BUILD_DIR); rm -rf config.{cache,status};);
 	$(call Build/Configure/Default)
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) \
-		CXXFLAGS="-I$(STAGING_DIR)/usr/include $(ICONV_CFLAGS)"
+	$(call Build/Compile/Default)
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
 		install
