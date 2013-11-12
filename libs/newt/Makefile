@@ -16,6 +16,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://fedorahosted.org/releases/n/e/newt/
 PKG_MD5SUM:=51b04128d9e1bf000fa769c417b74486
 
+PKG_FIXUP:=autoreconf
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/libnewt
