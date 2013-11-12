@@ -18,6 +18,7 @@ PKG_MD5SUM:=611d2dda222f00c10140236f4c331572
 PKG_BUILD_DIR:=$(BUILD_DIR)/BitchX
 
 PKG_BUILD_DEPENDS:=libncurses
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
