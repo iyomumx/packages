@@ -43,6 +43,7 @@ CONFIGURE_ARGS+= \
 	--disable-strip \
 	--disable-lvs \
 	--disable-lvs-syncd \
+	--with-kernel-dir="$(LINUX_DIR)/$(LINUX_UAPI_DIR)"
 
 CONFIGURE_VARS+= \
 	ac_cv_file_$(call acvar,$(LINUX_DIR)/net/core/link_watch.c)=yes
