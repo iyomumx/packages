@@ -1,0 +1,22 @@
+--- a/Makefile
++++ b/Makefile
+@@ -18,7 +18,7 @@
+ 
+ prefix = /usr
+ 
+-CC=gcc
++#CC=gcc
+ 
+ VERSION=1.6.0
+ TREE_DEST=tree
+@@ -31,8 +31,8 @@
+ 
+ # Linux defaults:
+ #CFLAGS=-ggdb -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+-CFLAGS=-O4 -Wall  -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+-LDFLAGS=-s
++#CFLAGS=-O4 -Wall  -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
++#LDFLAGS=-s
+ 
+ # Uncomment for FreeBSD:
+ #CFLAGS=-O2 -Wall -fomit-frame-pointer
